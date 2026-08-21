@@ -42,14 +42,14 @@
     .primary { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: 10px; padding: 0 26px; background: var(--gold); color: #17140d; font-weight: 800; border: 1px solid var(--gold); }
     .primary:hover { background: #e2c98e; }
     .text-link { padding-bottom: 4px; border-bottom: 1px solid var(--gold); }
-    .meta { display: flex; gap: 42px; margin: 36px 0 0; }
+    .meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 36px 0 0; }
     .meta div { padding-inline-start: 14px; border-inline-start: 1px solid var(--line); }
     .meta dt { color: var(--muted); font-size: 12px; }
     .meta dd { margin: 5px 0 0; direction: ltr; font-weight: 700; }
     section.band { padding: clamp(70px, 10vw, 126px) clamp(20px, 7vw, 120px); }
     #install { background: var(--band); border-block: 1px solid var(--line); }
     .section-heading { max-width: 720px; margin-bottom: 42px; }
-    .section-heading > p:last-child, .gallery-copy p { color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .section-heading > p:last-child { color: var(--muted); font-size: 17px; line-height: 1.8; }
     .install-tool { max-width: 1120px; border-block: 1px solid var(--line); }
     .tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
     .tabs button { min-height: 60px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-weight: 800; }
@@ -62,12 +62,6 @@
     .steps span { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--gold); color: var(--gold); font-weight: 800; }
     .steps p { margin: 5px 0 0; color: #dfd9cf; line-height: 1.7; }
     .note { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); color: var(--muted); overflow-wrap: anywhere; }
-    #gallery { background: #090a09; }
-    .gallery-copy { max-width: 740px; margin-bottom: 38px; }
-    .gallery { display: grid; grid-template-columns: 1.25fr .75fr; gap: 18px; }
-    figure { position: relative; min-height: 480px; margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.14); }
-    figure img { width: 100%; height: 100%; object-fit: cover; }
-    figcaption { position: absolute; bottom: 0; inset-inline: 0; padding: 18px 22px; background: rgba(5,6,5,.86); font-weight: 800; }
     .release { display: grid; grid-template-columns: 1fr auto; gap: 30px 60px; align-items: center; background: #191b17; border-block: 1px solid var(--line); }
     .release p { color: var(--muted); line-height: 1.8; }
     .checksum { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr; gap: 15px; align-items: center; color: var(--muted); }
@@ -85,9 +79,8 @@
       h1 { font-size: 42px; }
       .actions { align-items: stretch; flex-direction: column; gap: 17px; }
       .text-link { align-self: flex-start; }
-      .meta { gap: 16px; justify-content: space-between; }
-      .steps, .gallery { grid-template-columns: 1fr; }
-      figure { min-height: 280px; }
+      .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .steps { grid-template-columns: 1fr; }
       .release { grid-template-columns: 1fr; }
       .release .primary { width: 100%; }
       .checksum { grid-template-columns: 1fr; }
@@ -98,7 +91,7 @@
 <body>
   <header>
     <a class="brand" href="#top" aria-label="العودة إلى البداية"><span class="brand-mark">AK</span><span><b>Ashen Knight</b><small>تعريب الألعاب</small></span></a>
-    <nav aria-label="التنقل الرئيسي"><a href="#install">التثبيت</a><a href="#gallery">الصور</a><a class="nav-download" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5.zip">تنزيل</a></nav>
+    <nav aria-label="التنقل الرئيسي"><a href="#install">التثبيت</a><a class="nav-download" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5.zip">تنزيل</a></nav>
   </header>
 
   <main>
@@ -109,7 +102,7 @@
         <h1>تعريب مورتال شيل II</h1>
         <p class="hero-copy">ترجمة عربية للقصة والحوارات والقوائم، بخط واضح ومصطلحات مصاغة وفق سياق عالم اللعبة.</p>
         <div class="actions"><a class="primary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5.zip"><span aria-hidden="true">↓</span> تنزيل التعريب</a><a class="text-link" href="#install">عرض طريقة التثبيت</a></div>
-        <dl class="meta"><div><dt>الإصدار</dt><dd>1.4.5</dd></div><div><dt>الحجم</dt><dd>554 MB</dd></div><div><dt>المنصة</dt><dd>Steam - PC</dd></div></dl>
+        <dl class="meta"><div><dt>الإصدار</dt><dd>1.4.5</dd></div><div><dt>الحجم</dt><dd>554 MB</dd></div><div><dt>المنصة</dt><dd>Steam - PC</dd></div><div><dt>التنزيلات</dt><dd id="download-count" aria-live="polite">...</dd></div></dl>
       </div>
     </section>
 
@@ -131,14 +124,6 @@
       </div>
     </section>
 
-    <section class="band" id="gallery">
-      <div class="gallery-copy"><p class="eyebrow">IN GAME</p><h2>العربية في الواجهة والمشاهد</h2><p>يدعم التعريب القوائم والحوارات والترجمة المصاحبة للمشاهد السينمائية.</p></div>
-      <div class="gallery">
-        <figure><img src="https://ashen-knight-mortal-shell-ii-arabic.fareis19.chatgpt.site/media/arabic-cinematic.jpg" alt="ترجمة عربية في مشهد سينمائي" loading="lazy"><figcaption>المشاهد السينمائية</figcaption></figure>
-        <figure><img src="https://ashen-knight-mortal-shell-ii-arabic.fareis19.chatgpt.site/media/arabic-inventory.jpg" alt="قائمة المخزون باللغة العربية" loading="lazy"><figcaption>القوائم والمخزون</figcaption></figure>
-      </div>
-    </section>
-
     <section class="band release">
       <div><p class="eyebrow">VERSION 1.4.5</p><h2>جاهز للتنزيل</h2><p>يتضمن المثبت التلقائي وملفات التثبيت اليدوي في حزمة واحدة.</p></div>
       <a class="primary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5.zip"><span aria-hidden="true">↓</span> تنزيل الملف</a>
@@ -155,6 +140,18 @@
       buttons.forEach((item) => item.setAttribute('aria-selected', String(item === button)));
       panels.forEach((panel) => { panel.hidden = panel.id !== button.getAttribute('aria-controls'); });
     }));
+
+    const downloadCount = document.querySelector('#download-count');
+    fetch('https://api.github.com/repos/AshenKight/mortal-shell-ii-arabic/releases/tags/v1.4.5')
+      .then((response) => {
+        if (!response.ok) throw new Error('Could not load release data');
+        return response.json();
+      })
+      .then((release) => {
+        const asset = release.assets.find((item) => item.name === 'AshenKnight_MortalShellII_Arabic_v1.4.5.zip');
+        downloadCount.textContent = asset ? new Intl.NumberFormat('ar-SA').format(asset.download_count) : '—';
+      })
+      .catch(() => { downloadCount.textContent = '—'; });
   </script>
 </body>
 </html>
