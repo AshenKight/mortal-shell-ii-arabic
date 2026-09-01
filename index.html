@@ -105,8 +105,8 @@
         <p class="eyebrow">MORTAL SHELL II</p>
         <h1>تعريب مورتال شيل II</h1>
         <p class="hero-copy">ترجمة عربية للقصة والحوارات والقوائم، بخط واضح ومصطلحات مصاغة وفق سياق عالم اللعبة.</p>
-        <div class="actions"><a class="primary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5.zip"><span aria-hidden="true">↓</span> تنزيل بالمثبت</a><a class="secondary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5_Manual_PAK.zip"><span aria-hidden="true">↓</span> ملفات الباك فقط</a><a class="text-link" href="#install">عرض طريقة التثبيت</a></div>
-        <dl class="meta"><div><dt>الإصدار</dt><dd>1.4.5</dd></div><div><dt>الحجم</dt><dd>552-554 MB</dd></div><div><dt>المنصة</dt><dd>Steam - PC</dd></div><div><dt>التنزيلات</dt><dd id="download-count" aria-live="polite">...</dd></div></dl>
+        <div class="actions"><a class="primary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v2.0.0/AshenKnight_MortalShellII_Arabic_v2.0.0.zip"><span aria-hidden="true">↓</span> تنزيل بالمثبت</a><a class="secondary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v2.0.0/AshenKnight_MortalShellII_Arabic_v2.0.0_Manual_PAK.zip"><span aria-hidden="true">↓</span> ملفات الباك فقط</a><a class="text-link" href="#install">عرض طريقة التثبيت</a></div>
+        <dl class="meta"><div><dt>الإصدار</dt><dd>2.0.0</dd></div><div><dt>الحجم</dt><dd>656-658 MB</dd></div><div><dt>المنصة</dt><dd>Steam - PC</dd></div><div><dt>التنزيلات</dt><dd id="download-count" aria-live="polite">...</dd></div></dl>
       </div>
     </section>
 
@@ -129,10 +129,10 @@
     </section>
 
     <section class="band release" id="download">
-      <div><p class="eyebrow">VERSION 1.4.5</p><h2>اختر نسخة التنزيل</h2><p>استخدم المثبت التلقائي، أو نزّل ملفات PAK فقط للتثبيت اليدوي من دون أي ملف تنفيذي.</p></div>
-      <div class="release-actions"><a class="primary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5.zip"><span aria-hidden="true">↓</span> المثبت التلقائي</a><a class="secondary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v1.4.5/AshenKnight_MortalShellII_Arabic_v1.4.5_Manual_PAK.zip"><span aria-hidden="true">↓</span> ملفات الباك فقط</a></div>
-      <div class="checksum"><span>SHA-256</span><code>CAF4C1C6937FA2F0CAC3286195F7BDF99D2826A7F2A26F34C683CFD7D1A6C1E6</code></div>
-      <div class="checksum"><span>SHA-256 PAK</span><code>F78C0B26D4815D5F7C0DE8D83667C58C009C29D1C4FEDC5FCEB50399CF0E9CA5</code></div>
+      <div><p class="eyebrow">VERSION 2.0.0</p><h2>اختر نسخة التنزيل</h2><p>استخدم المثبت التلقائي، أو نزّل ملفات PAK فقط للتثبيت اليدوي من دون أي ملف تنفيذي.</p></div>
+      <div class="release-actions"><a class="primary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v2.0.0/AshenKnight_MortalShellII_Arabic_v2.0.0.zip"><span aria-hidden="true">↓</span> المثبت التلقائي</a><a class="secondary" href="https://github.com/AshenKight/mortal-shell-ii-arabic/releases/download/v2.0.0/AshenKnight_MortalShellII_Arabic_v2.0.0_Manual_PAK.zip"><span aria-hidden="true">↓</span> ملفات الباك فقط</a></div>
+      <div class="checksum"><span>SHA-256</span><code>E3557AB558B8DC026296B99B05291659B55017C468EFE29CFF21E960B767D18B</code></div>
+      <div class="checksum"><span>SHA-256 PAK</span><code>55D2700692FA9C65A8118708E4BEC1E92FB8DD4AD01B9A3D4B359B52E720DF44</code></div>
     </section>
   </main>
 
@@ -147,15 +147,15 @@
     }));
 
     const downloadCount = document.querySelector('#download-count');
-    fetch('https://api.github.com/repos/AshenKight/mortal-shell-ii-arabic/releases/tags/v1.4.5')
+    fetch('https://api.github.com/repos/AshenKight/mortal-shell-ii-arabic/releases/tags/v2.0.0')
       .then((response) => {
         if (!response.ok) throw new Error('Could not load release data');
         return response.json();
       })
       .then((release) => {
         const assetNames = new Set([
-          'AshenKnight_MortalShellII_Arabic_v1.4.5.zip',
-          'AshenKnight_MortalShellII_Arabic_v1.4.5_Manual_PAK.zip'
+          'AshenKnight_MortalShellII_Arabic_v2.0.0.zip',
+          'AshenKnight_MortalShellII_Arabic_v2.0.0_Manual_PAK.zip'
         ]);
         const total = release.assets
           .filter((item) => assetNames.has(item.name))
